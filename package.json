@@ -1,0 +1,24 @@
+{
+  "name": "qurio",
+  "version": "1.0.0",
+  "description": "A Q&A web app that lets users post questions and receive answers from the community.",
+  "homepage": "https://github.com/SyedTanzim/qurio#readme",
+  "bugs": {
+    "url": "https://github.com/SyedTanzim/qurio/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SyedTanzim/qurio.git"
+  },
+  "license": "ISC",
+  "author": "Syed Tanzim Wajih",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}
