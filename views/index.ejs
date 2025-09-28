@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>qurio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Qurio</h1>
+    <% for(post of posts) { %>
+        <div class="user">
+            <h3 class="name">@<%= post.userName %></h3>
+            <p class="content"><%= post.content %></p>
+        </div>
+    <% } %>
+    <a href="http://localhost:1920/posts/new"><button>Ask Question</button></a>
+</body>
+</html>
