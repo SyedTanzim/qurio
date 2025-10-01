@@ -12,8 +12,10 @@
         <div class="user">
             <h3 class="name">@<%= post.userName %></h3>
             <p class="content"><%= post.content %></p>
+            <a href="http://localhost:1920/posts/<%= post.id %>">read more</a>
         </div>
     <% } %>
+    <br>
     <a href="http://localhost:1920/posts/new"><button>Ask Question</button></a>
 </body>
 </html>
