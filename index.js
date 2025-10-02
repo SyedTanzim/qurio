@@ -2,10 +2,10 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { v4 as uuidv4 } from 'uuid';
+import methodOverride from 'method-override';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
 const app = express();
 const port = 1920;
 
@@ -15,6 +15,7 @@ app.set('view engine' , 'ejs');
 app.use(express.static(path.join(__dirname , 'public')));
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
+app.use(methodOverride('_method'));
 
 let posts = [
     {
@@ -45,8 +46,26 @@ app.get('/posts/new' , (req, resp) => {
 app.get('/posts/:id' , (req, resp) => {
     let {id} = req.params;
     let post = posts.find( (p) => id === p.id );
-    console.log(post);
     resp.render('show.ejs', {post})
+});
+
+app.patch('/posts/:id' , (req, resp) => {
+    let {id} = req.params;
+    let post = posts.find( (p) => id === p.id );
+    let newContent = req.body.content; 
+    post.content = newContent;
+    console.log(newContent);
+    resp.redirect('/posts'); 
+});
+
+app.get('/posts/:id/edit', (req, resp) => {
+    let {id} = req.params;   
+    let post = posts.find( (p) => id === p.id );
+    resp.render('edit.ejs', {post} )
+});
+
+app.delete('/posts/:id', (req, resp) => {
+     
 });
 
 app.post('/posts' , (req, resp) => {

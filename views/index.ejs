@@ -12,7 +12,11 @@
         <div class="user">
             <h3 class="name">@<%= post.userName %></h3>
             <p class="content"><%= post.content %></p>
-            <a href="http://localhost:1920/posts/<%= post.id %>">read more</a>
+            <a href="http://localhost:1920/posts/<%=post.id%>"><button>read more</button></a>
+            <a href="http://localhost:1920/posts/<%=post.id%>/edit"><button>edit</button></a>
+            <form style="display: inline;" method="post" action="/posts/<%=post.id%>?_method=DELETE">
+                <a href="http://localhost:1920/posts/<%=post.id%>/edit"><button>delete</button></a>
+            </form>
         </div>
     <% } %>
     <br>
