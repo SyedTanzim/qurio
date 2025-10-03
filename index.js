@@ -65,7 +65,9 @@ app.get('/posts/:id/edit', (req, resp) => {
 });
 
 app.delete('/posts/:id', (req, resp) => {
-     
+    let {id} = req.params;   
+    posts = posts.filter( (p) => id !== p.id );
+    resp.redirect('/posts');
 });
 
 app.post('/posts' , (req, resp) => {
